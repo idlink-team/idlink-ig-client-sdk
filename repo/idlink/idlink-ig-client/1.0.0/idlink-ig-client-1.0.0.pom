@@ -8,7 +8,6 @@
   <version>1.0.0</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>
-
   <scm>
     <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
     <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
@@ -210,16 +209,6 @@
       <artifactId>commons-io</artifactId>
       <version>${commons_io_version}</version>
     </dependency>
-    <dependency>
-     <groupId>com.nimbusds</groupId>
-     <artifactId>nimbus-jose-jwt</artifactId>
-     <version>5.4</version>
-     </dependency>
-    <dependency>
-      <groupId>com.auth0</groupId>
-      <artifactId>java-jwt</artifactId>
-      <version>3.8.3</version>
-    </dependency>
     <!-- test dependencies -->
     <dependency>
       <groupId>junit</groupId>
@@ -230,7 +219,7 @@
   </dependencies>
   <distributionManagement>
     <repository>
-      <id>idlink-mvn-repo</id>
+      <id>idlink</id>
       <url>file:${basedir}/repo</url>
     </repository>
   </distributionManagement>

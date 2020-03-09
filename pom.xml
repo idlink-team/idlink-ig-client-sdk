@@ -219,7 +219,7 @@
   </dependencies>
   <distributionManagement>
     <repository>
-      <id>idlink-mvn-repo</id>
+      <id>idlink</id>
       <url>file:${basedir}/repo</url>
     </repository>
   </distributionManagement>
