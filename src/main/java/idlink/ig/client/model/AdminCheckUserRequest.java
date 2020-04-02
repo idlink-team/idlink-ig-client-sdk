@@ -27,7 +27,7 @@ import java.util.Map;
  * AdminCheckUserRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-03-09T19:51:54.787+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:00:14.341+08:00[Asia/Shanghai]")
 public class AdminCheckUserRequest {
   @SerializedName("attributes")
   private Map<String, Object> attributes = new HashMap<String, Object>();

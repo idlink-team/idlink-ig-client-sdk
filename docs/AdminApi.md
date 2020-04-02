@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**adminDeleteUserAttribute**](AdminApi.md#adminDeleteUserAttribute) | **POST** /api/adminDeleteUserAttribute | Deletes the attribute from a user type as an administrator
 [**adminDisableUser**](AdminApi.md#adminDisableUser) | **POST** /api/adminDisableUser | Disables a user as an administrator
 [**adminEnableUser**](AdminApi.md#adminEnableUser) | **POST** /api/adminEnableUser | Enables a user as an administrator
+[**adminExchangeAccessToken**](AdminApi.md#adminExchangeAccessToken) | **POST** /api/adminExchangeAccessToken | admin Exchange AccessToken
 [**adminInitialLogin**](AdminApi.md#adminInitialLogin) | **POST** /api/adminInitialLogin | Log in and return the tokens as an administrator
 [**adminListUserAttributes**](AdminApi.md#adminListUserAttributes) | **POST** /api/adminListUserAttributes | List the attribute from a user type as an administrator
 [**adminUpdateUser**](AdminApi.md#adminUpdateUser) | **POST** /api/adminUpdateUser | Updates the attribute of a User as an administrator
@@ -62,7 +63,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminChangePassword"></a>
@@ -111,7 +112,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminCheckUserExist"></a>
@@ -162,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminCreateUser"></a>
@@ -211,7 +212,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminDeleteUser"></a>
@@ -260,7 +261,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminDeleteUserAttribute"></a>
@@ -309,7 +310,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminDisableUser"></a>
@@ -358,7 +359,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminEnableUser"></a>
@@ -407,7 +408,56 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="adminExchangeAccessToken"></a>
+# **adminExchangeAccessToken**
+> String adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
+
+admin Exchange AccessToken
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import idlink.ig.client.api.AdminApi;
+
+
+AdminApi apiInstance = new AdminApi();
+AdminExchangeAccessTokenRequest body = new AdminExchangeAccessTokenRequest(); // AdminExchangeAccessTokenRequest | User to login
+String X_API_CLIENT_ID = "X_API_CLIENT_ID_example"; // String | X-API-CLIENT-ID, Get form ID.LINK team.
+Long X_API_TIMESTAMP = 789L; // Long | X-API-TIMESTAMP, The timestamp of calling this api
+String X_API_TOKEN = "X_API_TOKEN_example"; // String | X-API-TOKEN, Generate it by AdminClientTool
+try {
+    String result = apiInstance.adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AdminApi#adminExchangeAccessToken");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AdminExchangeAccessTokenRequest**](AdminExchangeAccessTokenRequest.md)| User to login |
+ **X_API_CLIENT_ID** | **String**| X-API-CLIENT-ID, Get form ID.LINK team. |
+ **X_API_TIMESTAMP** | **Long**| X-API-TIMESTAMP, The timestamp of calling this api |
+ **X_API_TOKEN** | **String**| X-API-TOKEN, Generate it by AdminClientTool |
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminInitialLogin"></a>
@@ -456,7 +506,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminListUserAttributes"></a>
@@ -505,7 +555,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="adminUpdateUser"></a>
@@ -554,6 +604,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: */*
 

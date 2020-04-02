@@ -42,6 +42,7 @@ import idlink.ig.client.model.AdminDisableUserRequest;
 import idlink.ig.client.model.AdminDisableUserResponse;
 import idlink.ig.client.model.AdminEnableUserRequest;
 import idlink.ig.client.model.AdminEnableUserResponse;
+import idlink.ig.client.model.AdminExchangeAccessTokenRequest;
 import idlink.ig.client.model.AdminInitialLoginRequest;
 import idlink.ig.client.model.AdminListUserAttributesRequest;
 import idlink.ig.client.model.AdminListUserAttributesResponse;
@@ -110,7 +111,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -264,7 +265,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -418,7 +419,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -572,7 +573,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -726,7 +727,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -880,7 +881,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1034,7 +1035,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1188,7 +1189,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1306,6 +1307,160 @@ public class AdminApi {
         return call;
     }
     /**
+     * Build call for adminExchangeAccessToken
+     * @param body User to login (required)
+     * @param X_API_CLIENT_ID X-API-CLIENT-ID, Get form ID.LINK team. (required)
+     * @param X_API_TIMESTAMP X-API-TIMESTAMP, The timestamp of calling this api (required)
+     * @param X_API_TOKEN X-API-TOKEN, Generate it by AdminClientTool (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call adminExchangeAccessTokenCall(AdminExchangeAccessTokenRequest body, String X_API_CLIENT_ID, Long X_API_TIMESTAMP, String X_API_TOKEN, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/adminExchangeAccessToken";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (X_API_CLIENT_ID != null)
+        localVarHeaderParams.put("X-API-CLIENT-ID", apiClient.parameterToString(X_API_CLIENT_ID));
+        if (X_API_TIMESTAMP != null)
+        localVarHeaderParams.put("X-API-TIMESTAMP", apiClient.parameterToString(X_API_TIMESTAMP));
+        if (X_API_TOKEN != null)
+        localVarHeaderParams.put("X-API-TOKEN", apiClient.parameterToString(X_API_TOKEN));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call adminExchangeAccessTokenValidateBeforeCall(AdminExchangeAccessTokenRequest body, String X_API_CLIENT_ID, Long X_API_TIMESTAMP, String X_API_TOKEN, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling adminExchangeAccessToken(Async)");
+        }
+        // verify the required parameter 'X_API_CLIENT_ID' is set
+        if (X_API_CLIENT_ID == null) {
+            throw new ApiException("Missing the required parameter 'X_API_CLIENT_ID' when calling adminExchangeAccessToken(Async)");
+        }
+        // verify the required parameter 'X_API_TIMESTAMP' is set
+        if (X_API_TIMESTAMP == null) {
+            throw new ApiException("Missing the required parameter 'X_API_TIMESTAMP' when calling adminExchangeAccessToken(Async)");
+        }
+        // verify the required parameter 'X_API_TOKEN' is set
+        if (X_API_TOKEN == null) {
+            throw new ApiException("Missing the required parameter 'X_API_TOKEN' when calling adminExchangeAccessToken(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = adminExchangeAccessTokenCall(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * admin Exchange AccessToken
+     * 
+     * @param body User to login (required)
+     * @param X_API_CLIENT_ID X-API-CLIENT-ID, Get form ID.LINK team. (required)
+     * @param X_API_TIMESTAMP X-API-TIMESTAMP, The timestamp of calling this api (required)
+     * @param X_API_TOKEN X-API-TOKEN, Generate it by AdminClientTool (required)
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public String adminExchangeAccessToken(AdminExchangeAccessTokenRequest body, String X_API_CLIENT_ID, Long X_API_TIMESTAMP, String X_API_TOKEN) throws ApiException {
+        ApiResponse<String> resp = adminExchangeAccessTokenWithHttpInfo(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
+        return resp.getData();
+    }
+
+    /**
+     * admin Exchange AccessToken
+     * 
+     * @param body User to login (required)
+     * @param X_API_CLIENT_ID X-API-CLIENT-ID, Get form ID.LINK team. (required)
+     * @param X_API_TIMESTAMP X-API-TIMESTAMP, The timestamp of calling this api (required)
+     * @param X_API_TOKEN X-API-TOKEN, Generate it by AdminClientTool (required)
+     * @return ApiResponse&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<String> adminExchangeAccessTokenWithHttpInfo(AdminExchangeAccessTokenRequest body, String X_API_CLIENT_ID, Long X_API_TIMESTAMP, String X_API_TOKEN) throws ApiException {
+        com.squareup.okhttp.Call call = adminExchangeAccessTokenValidateBeforeCall(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN, null, null);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * admin Exchange AccessToken (asynchronously)
+     * 
+     * @param body User to login (required)
+     * @param X_API_CLIENT_ID X-API-CLIENT-ID, Get form ID.LINK team. (required)
+     * @param X_API_TIMESTAMP X-API-TIMESTAMP, The timestamp of calling this api (required)
+     * @param X_API_TOKEN X-API-TOKEN, Generate it by AdminClientTool (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call adminExchangeAccessTokenAsync(AdminExchangeAccessTokenRequest body, String X_API_CLIENT_ID, Long X_API_TIMESTAMP, String X_API_TOKEN, final ApiCallback<String> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = adminExchangeAccessTokenValidateBeforeCall(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for adminInitialLogin
      * @param body User to login (required)
      * @param X_API_CLIENT_ID X-API-CLIENT-ID, Get form ID.LINK team. (required)
@@ -1342,7 +1497,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1496,7 +1651,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1650,7 +1805,7 @@ public class AdminApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json;charset=UTF-8"
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

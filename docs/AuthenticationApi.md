@@ -63,7 +63,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json;charset=UTF-8
+ - **Accept**: application/json
 
 <a name="jwkList"></a>
 # **jwkList**
@@ -145,7 +145,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json;charset=UTF-8
+ - **Accept**: application/json
 
 <a name="openidConfiguration"></a>
 # **openidConfiguration**
@@ -237,7 +237,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json;charset=UTF-8
+ - **Accept**: application/json
 
 <a name="verifyAccessToken"></a>
 # **verifyAccessToken**
@@ -282,7 +282,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json;charset=UTF-8
+ - **Accept**: application/json
 
 <a name="verifyJWT"></a>
 # **verifyJWT**
@@ -327,5 +327,5 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json;charset=UTF-8
+ - **Accept**: application/json
 

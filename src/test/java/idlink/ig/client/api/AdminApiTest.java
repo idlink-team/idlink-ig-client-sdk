@@ -29,6 +29,7 @@ import idlink.ig.client.model.AdminDisableUserRequest;
 import idlink.ig.client.model.AdminDisableUserResponse;
 import idlink.ig.client.model.AdminEnableUserRequest;
 import idlink.ig.client.model.AdminEnableUserResponse;
+import idlink.ig.client.model.AdminExchangeAccessTokenRequest;
 import idlink.ig.client.model.AdminInitialLoginRequest;
 import idlink.ig.client.model.AdminListUserAttributesRequest;
 import idlink.ig.client.model.AdminListUserAttributesResponse;
@@ -191,6 +192,24 @@ public class AdminApiTest {
         Long X_API_TIMESTAMP = null;
         String X_API_TOKEN = null;
         AdminEnableUserResponse response = api.adminEnableUser(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
+
+        // TODO: test validations
+    }
+    /**
+     * admin Exchange AccessToken
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void adminExchangeAccessTokenTest() throws ApiException {
+        AdminExchangeAccessTokenRequest body = null;
+        String X_API_CLIENT_ID = null;
+        Long X_API_TIMESTAMP = null;
+        String X_API_TOKEN = null;
+        String response = api.adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
 
         // TODO: test validations
     }
