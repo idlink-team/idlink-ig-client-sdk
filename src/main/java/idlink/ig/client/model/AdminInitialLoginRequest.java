@@ -27,7 +27,7 @@ import java.util.Map;
  * AdminInitialLoginRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:00:14.341+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:08:53.355+08:00[Asia/Shanghai]")
 public class AdminInitialLoginRequest {
   @SerializedName("clientMetadata")
   private Map<String, Object> clientMetadata = null;
