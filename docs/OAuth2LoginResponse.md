@@ -1,8 +1,8 @@
-# AdminListUserAttributesResponse
+# OAuth2LoginResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** | Response data |  [optional]
+**data** | **String** | Response data |  [optional]
 **detail** | **String** | Response message |  [optional]
 **httpStatus** | **String** | Response status | 

@@ -24,8 +24,8 @@ import java.io.IOException;
  * Response data model
  */
 @Schema(description = "Response data model")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:08:53.355+08:00[Asia/Shanghai]")
-public class AdminAddUserAttributeResponse {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-14T18:48:52.841+08:00[Asia/Shanghai]")
+public class AdminInitialLoginResponse {
   @SerializedName("data")
   private String data = null;
 
@@ -35,7 +35,7 @@ public class AdminAddUserAttributeResponse {
   @SerializedName("httpStatus")
   private String httpStatus = null;
 
-  public AdminAddUserAttributeResponse data(String data) {
+  public AdminInitialLoginResponse data(String data) {
     this.data = data;
     return this;
   }
@@ -53,7 +53,7 @@ public class AdminAddUserAttributeResponse {
     this.data = data;
   }
 
-  public AdminAddUserAttributeResponse detail(String detail) {
+  public AdminInitialLoginResponse detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -71,7 +71,7 @@ public class AdminAddUserAttributeResponse {
     this.detail = detail;
   }
 
-  public AdminAddUserAttributeResponse httpStatus(String httpStatus) {
+  public AdminInitialLoginResponse httpStatus(String httpStatus) {
     this.httpStatus = httpStatus;
     return this;
   }
@@ -98,10 +98,10 @@ public class AdminAddUserAttributeResponse {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    AdminAddUserAttributeResponse adminAddUserAttributeResponse = (AdminAddUserAttributeResponse) o;
-    return ObjectUtils.equals(this.data, adminAddUserAttributeResponse.data) &&
-    ObjectUtils.equals(this.detail, adminAddUserAttributeResponse.detail) &&
-    ObjectUtils.equals(this.httpStatus, adminAddUserAttributeResponse.httpStatus);
+    AdminInitialLoginResponse adminInitialLoginResponse = (AdminInitialLoginResponse) o;
+    return ObjectUtils.equals(this.data, adminInitialLoginResponse.data) &&
+    ObjectUtils.equals(this.detail, adminInitialLoginResponse.detail) &&
+    ObjectUtils.equals(this.httpStatus, adminInitialLoginResponse.httpStatus);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class AdminAddUserAttributeResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AdminAddUserAttributeResponse {\n");
+    sb.append("class AdminInitialLoginResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");

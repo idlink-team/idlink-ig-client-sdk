@@ -24,10 +24,10 @@ import java.io.IOException;
  * Response data model
  */
 @Schema(description = "Response data model")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:08:53.355+08:00[Asia/Shanghai]")
-public class AdminDeleteUserAttributeResponse {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-14T18:48:52.841+08:00[Asia/Shanghai]")
+public class AdminGetClientByPoolIdResponse {
   @SerializedName("data")
-  private String data = null;
+  private Object data = null;
 
   @SerializedName("detail")
   private String detail = null;
@@ -35,7 +35,7 @@ public class AdminDeleteUserAttributeResponse {
   @SerializedName("httpStatus")
   private String httpStatus = null;
 
-  public AdminDeleteUserAttributeResponse data(String data) {
+  public AdminGetClientByPoolIdResponse data(Object data) {
     this.data = data;
     return this;
   }
@@ -45,15 +45,15 @@ public class AdminDeleteUserAttributeResponse {
    * @return data
   **/
   @Schema(description = "Response data")
-  public String getData() {
+  public Object getData() {
     return data;
   }
 
-  public void setData(String data) {
+  public void setData(Object data) {
     this.data = data;
   }
 
-  public AdminDeleteUserAttributeResponse detail(String detail) {
+  public AdminGetClientByPoolIdResponse detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -71,7 +71,7 @@ public class AdminDeleteUserAttributeResponse {
     this.detail = detail;
   }
 
-  public AdminDeleteUserAttributeResponse httpStatus(String httpStatus) {
+  public AdminGetClientByPoolIdResponse httpStatus(String httpStatus) {
     this.httpStatus = httpStatus;
     return this;
   }
@@ -98,10 +98,10 @@ public class AdminDeleteUserAttributeResponse {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    AdminDeleteUserAttributeResponse adminDeleteUserAttributeResponse = (AdminDeleteUserAttributeResponse) o;
-    return ObjectUtils.equals(this.data, adminDeleteUserAttributeResponse.data) &&
-    ObjectUtils.equals(this.detail, adminDeleteUserAttributeResponse.detail) &&
-    ObjectUtils.equals(this.httpStatus, adminDeleteUserAttributeResponse.httpStatus);
+    AdminGetClientByPoolIdResponse adminGetClientByPoolIdResponse = (AdminGetClientByPoolIdResponse) o;
+    return ObjectUtils.equals(this.data, adminGetClientByPoolIdResponse.data) &&
+    ObjectUtils.equals(this.detail, adminGetClientByPoolIdResponse.detail) &&
+    ObjectUtils.equals(this.httpStatus, adminGetClientByPoolIdResponse.httpStatus);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class AdminDeleteUserAttributeResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AdminDeleteUserAttributeResponse {\n");
+    sb.append("class AdminGetClientByPoolIdResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");

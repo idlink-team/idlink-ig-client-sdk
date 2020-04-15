@@ -27,57 +27,13 @@ import java.util.Map;
  * AdminInitialLoginRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:08:53.355+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-14T18:48:52.841+08:00[Asia/Shanghai]")
 public class AdminInitialLoginRequest {
   @SerializedName("clientMetadata")
   private Map<String, Object> clientMetadata = null;
 
   @SerializedName("password")
   private String password = null;
-
-  /**
-   * The type of user
-   */
-  @JsonAdapter(UserTypeEnum.Adapter.class)
-  public enum UserTypeEnum {
-    DEVICE("DEVICE"),
-    PERSON("PERSON");
-
-    private String value;
-
-    UserTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static UserTypeEnum fromValue(String text) {
-      for (UserTypeEnum b : UserTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<UserTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final UserTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public UserTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return UserTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }  @SerializedName("userType")
-  private UserTypeEnum userType = null;
 
   @SerializedName("username")
   private String username = null;
@@ -126,24 +82,6 @@ public class AdminInitialLoginRequest {
     this.password = password;
   }
 
-  public AdminInitialLoginRequest userType(UserTypeEnum userType) {
-    this.userType = userType;
-    return this;
-  }
-
-   /**
-   * The type of user
-   * @return userType
-  **/
-  @Schema(example = "PERSON", required = true, description = "The type of user")
-  public UserTypeEnum getUserType() {
-    return userType;
-  }
-
-  public void setUserType(UserTypeEnum userType) {
-    this.userType = userType;
-  }
-
   public AdminInitialLoginRequest username(String username) {
     this.username = username;
     return this;
@@ -174,13 +112,12 @@ public class AdminInitialLoginRequest {
     AdminInitialLoginRequest adminInitialLoginRequest = (AdminInitialLoginRequest) o;
     return ObjectUtils.equals(this.clientMetadata, adminInitialLoginRequest.clientMetadata) &&
     ObjectUtils.equals(this.password, adminInitialLoginRequest.password) &&
-    ObjectUtils.equals(this.userType, adminInitialLoginRequest.userType) &&
     ObjectUtils.equals(this.username, adminInitialLoginRequest.username);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(clientMetadata, password, userType, username);
+    return ObjectUtils.hashCodeMulti(clientMetadata, password, username);
   }
 
 
@@ -191,7 +128,6 @@ public class AdminInitialLoginRequest {
     
     sb.append("    clientMetadata: ").append(toIndentedString(clientMetadata)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();

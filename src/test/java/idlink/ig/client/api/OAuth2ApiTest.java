@@ -13,6 +13,9 @@
 package idlink.ig.client.api;
 
 import io.swagger.client.ApiException;
+import idlink.ig.client.model.OAuth2GetUserInfoResponse;
+import idlink.ig.client.model.OAuth2LoginResponse;
+import idlink.ig.client.model.OAuth2VerifyAccessTokenResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -22,33 +25,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for AuthenticationApi
+ * API tests for OAuth2Api
  */
 @Ignore
-public class AuthenticationApiTest {
+public class OAuth2ApiTest {
 
-    private final AuthenticationApi api = new AuthenticationApi();
+    private final OAuth2Api api = new OAuth2Api();
 
-    /**
-     * oauth2 device&#x27;s token
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deviceLoginTest() throws ApiException {
-        String authorization = null;
-        String grantType = null;
-        String password = null;
-        String refreshToken = null;
-        String scope = null;
-        String username = null;
-        String response = api.deviceLogin(authorization, grantType, password, refreshToken, scope, username);
-
-        // TODO: test validations
-    }
     /**
      * jwt list
      *
@@ -64,7 +47,7 @@ public class AuthenticationApiTest {
         // TODO: test validations
     }
     /**
-     * oauth2 userInfo
+     * OAuth2 get user info
      *
      * 
      *
@@ -72,9 +55,45 @@ public class AuthenticationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void oauth2UserInfoTest() throws ApiException {
+    public void oAuth2GetUserInfoTest() throws ApiException {
+        String token = null;
         String authorization = null;
-        String response = api.oauth2UserInfo(authorization);
+        OAuth2GetUserInfoResponse response = api.oAuth2GetUserInfo(token, authorization);
+
+        // TODO: test validations
+    }
+    /**
+     * oauth2 user&#x27;s token
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void oAuth2TokenTest() throws ApiException {
+        String grantType = null;
+        String password = null;
+        String refreshToken = null;
+        String username = null;
+        String authorization = null;
+        OAuth2LoginResponse response = api.oAuth2Token(grantType, password, refreshToken, username, authorization);
+
+        // TODO: test validations
+    }
+    /**
+     * OAuth2 verify Access Token
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void oAuth2VerifyAccessTokenTest() throws ApiException {
+        String token = null;
+        String authorization = null;
+        OAuth2VerifyAccessTokenResponse response = api.oAuth2VerifyAccessToken(token, authorization);
 
         // TODO: test validations
     }
@@ -89,42 +108,6 @@ public class AuthenticationApiTest {
     @Test
     public void openidConfigurationTest() throws ApiException {
         Object response = api.openidConfiguration();
-
-        // TODO: test validations
-    }
-    /**
-     * oauth2 user&#x27;s token
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void personLoginTest() throws ApiException {
-        String authorization = null;
-        String grantType = null;
-        String password = null;
-        String refreshToken = null;
-        String scope = null;
-        String username = null;
-        String response = api.personLogin(authorization, grantType, password, refreshToken, scope, username);
-
-        // TODO: test validations
-    }
-    /**
-     * verify access_token
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void verifyAccessTokenTest() throws ApiException {
-        String authorization = null;
-        String token = null;
-        Boolean response = api.verifyAccessToken(authorization, token);
 
         // TODO: test validations
     }

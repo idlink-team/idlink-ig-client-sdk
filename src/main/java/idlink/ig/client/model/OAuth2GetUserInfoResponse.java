@@ -24,10 +24,10 @@ import java.io.IOException;
  * Response data model
  */
 @Schema(description = "Response data model")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:08:53.355+08:00[Asia/Shanghai]")
-public class AdminListUserAttributesResponse {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-14T18:48:52.841+08:00[Asia/Shanghai]")
+public class OAuth2GetUserInfoResponse {
   @SerializedName("data")
-  private Object data = null;
+  private String data = null;
 
   @SerializedName("detail")
   private String detail = null;
@@ -35,7 +35,7 @@ public class AdminListUserAttributesResponse {
   @SerializedName("httpStatus")
   private String httpStatus = null;
 
-  public AdminListUserAttributesResponse data(Object data) {
+  public OAuth2GetUserInfoResponse data(String data) {
     this.data = data;
     return this;
   }
@@ -45,15 +45,15 @@ public class AdminListUserAttributesResponse {
    * @return data
   **/
   @Schema(description = "Response data")
-  public Object getData() {
+  public String getData() {
     return data;
   }
 
-  public void setData(Object data) {
+  public void setData(String data) {
     this.data = data;
   }
 
-  public AdminListUserAttributesResponse detail(String detail) {
+  public OAuth2GetUserInfoResponse detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -71,7 +71,7 @@ public class AdminListUserAttributesResponse {
     this.detail = detail;
   }
 
-  public AdminListUserAttributesResponse httpStatus(String httpStatus) {
+  public OAuth2GetUserInfoResponse httpStatus(String httpStatus) {
     this.httpStatus = httpStatus;
     return this;
   }
@@ -98,10 +98,10 @@ public class AdminListUserAttributesResponse {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    AdminListUserAttributesResponse adminListUserAttributesResponse = (AdminListUserAttributesResponse) o;
-    return ObjectUtils.equals(this.data, adminListUserAttributesResponse.data) &&
-    ObjectUtils.equals(this.detail, adminListUserAttributesResponse.detail) &&
-    ObjectUtils.equals(this.httpStatus, adminListUserAttributesResponse.httpStatus);
+    OAuth2GetUserInfoResponse oauth2GetUserInfoResponse = (OAuth2GetUserInfoResponse) o;
+    return ObjectUtils.equals(this.data, oauth2GetUserInfoResponse.data) &&
+    ObjectUtils.equals(this.detail, oauth2GetUserInfoResponse.detail) &&
+    ObjectUtils.equals(this.httpStatus, oauth2GetUserInfoResponse.httpStatus);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class AdminListUserAttributesResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AdminListUserAttributesResponse {\n");
+    sb.append("class OAuth2GetUserInfoResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");

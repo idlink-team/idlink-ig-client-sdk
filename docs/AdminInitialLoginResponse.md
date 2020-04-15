@@ -1,4 +1,4 @@
-# AdminAddUserAttributeResponse
+# AdminInitialLoginResponse
 
 ## Properties
 Name | Type | Description | Notes

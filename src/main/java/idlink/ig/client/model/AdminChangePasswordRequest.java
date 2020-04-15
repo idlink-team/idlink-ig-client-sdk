@@ -24,54 +24,10 @@ import java.io.IOException;
  * AdminChangePasswordRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:08:53.355+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-14T18:48:52.841+08:00[Asia/Shanghai]")
 public class AdminChangePasswordRequest {
   @SerializedName("password")
   private String password = null;
-
-  /**
-   * The type of user
-   */
-  @JsonAdapter(UserTypeEnum.Adapter.class)
-  public enum UserTypeEnum {
-    DEVICE("DEVICE"),
-    PERSON("PERSON");
-
-    private String value;
-
-    UserTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static UserTypeEnum fromValue(String text) {
-      for (UserTypeEnum b : UserTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<UserTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final UserTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public UserTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return UserTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }  @SerializedName("userType")
-  private UserTypeEnum userType = null;
 
   @SerializedName("username")
   private String username = null;
@@ -92,24 +48,6 @@ public class AdminChangePasswordRequest {
 
   public void setPassword(String password) {
     this.password = password;
-  }
-
-  public AdminChangePasswordRequest userType(UserTypeEnum userType) {
-    this.userType = userType;
-    return this;
-  }
-
-   /**
-   * The type of user
-   * @return userType
-  **/
-  @Schema(example = "PERSON", required = true, description = "The type of user")
-  public UserTypeEnum getUserType() {
-    return userType;
-  }
-
-  public void setUserType(UserTypeEnum userType) {
-    this.userType = userType;
   }
 
   public AdminChangePasswordRequest username(String username) {
@@ -141,13 +79,12 @@ public class AdminChangePasswordRequest {
   }
     AdminChangePasswordRequest adminChangePasswordRequest = (AdminChangePasswordRequest) o;
     return ObjectUtils.equals(this.password, adminChangePasswordRequest.password) &&
-    ObjectUtils.equals(this.userType, adminChangePasswordRequest.userType) &&
     ObjectUtils.equals(this.username, adminChangePasswordRequest.username);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(password, userType, username);
+    return ObjectUtils.hashCodeMulti(password, username);
   }
 
 
@@ -157,7 +94,6 @@ public class AdminChangePasswordRequest {
     sb.append("class AdminChangePasswordRequest {\n");
     
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
