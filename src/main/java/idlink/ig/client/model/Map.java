@@ -14,12 +14,11 @@ package idlink.ig.client.model;
 
 import org.apache.commons.lang3.ObjectUtils;
 import java.util.HashMap;
-//import java.util.Map;
 /**
  * Map
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-14T18:48:52.841+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-15T13:55:16.094+08:00[Asia/Shanghai]")
 public class Map extends HashMap<String, Object> {
 
   @Override

@@ -27,10 +27,10 @@ import java.util.Map;
  * AdminInitialLoginRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-14T18:48:52.841+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-15T13:55:16.094+08:00[Asia/Shanghai]")
 public class AdminInitialLoginRequest {
-  @SerializedName("clientMetadata")
-  private Map<String, Object> clientMetadata = null;
+  @SerializedName("dynamicClaim")
+  private Map<String, Object> dynamicClaim = null;
 
   @SerializedName("password")
   private String password = null;
@@ -38,30 +38,30 @@ public class AdminInitialLoginRequest {
   @SerializedName("username")
   private String username = null;
 
-  public AdminInitialLoginRequest clientMetadata(Map<String, Object> clientMetadata) {
-    this.clientMetadata = clientMetadata;
+  public AdminInitialLoginRequest dynamicClaim(Map<String, Object> dynamicClaim) {
+    this.dynamicClaim = dynamicClaim;
     return this;
   }
 
-  public AdminInitialLoginRequest putClientMetadataItem(String key, Object clientMetadataItem) {
-    if (this.clientMetadata == null) {
-      this.clientMetadata = new HashMap<String, Object>();
+  public AdminInitialLoginRequest putDynamicClaimItem(String key, Object dynamicClaimItem) {
+    if (this.dynamicClaim == null) {
+      this.dynamicClaim = new HashMap<String, Object>();
     }
-    this.clientMetadata.put(key, clientMetadataItem);
+    this.dynamicClaim.put(key, dynamicClaimItem);
     return this;
   }
 
    /**
    * Client meta data
-   * @return clientMetadata
+   * @return dynamicClaim
   **/
   @Schema(example = "{\"param1\":\"value1\",\"param2\":\"value2\"}", description = "Client meta data")
-  public Map<String, Object> getClientMetadata() {
-    return clientMetadata;
+  public Map<String, Object> getDynamicClaim() {
+    return dynamicClaim;
   }
 
-  public void setClientMetadata(Map<String, Object> clientMetadata) {
-    this.clientMetadata = clientMetadata;
+  public void setDynamicClaim(Map<String, Object> dynamicClaim) {
+    this.dynamicClaim = dynamicClaim;
   }
 
   public AdminInitialLoginRequest password(String password) {
@@ -110,14 +110,14 @@ public class AdminInitialLoginRequest {
     return false;
   }
     AdminInitialLoginRequest adminInitialLoginRequest = (AdminInitialLoginRequest) o;
-    return ObjectUtils.equals(this.clientMetadata, adminInitialLoginRequest.clientMetadata) &&
+    return ObjectUtils.equals(this.dynamicClaim, adminInitialLoginRequest.dynamicClaim) &&
     ObjectUtils.equals(this.password, adminInitialLoginRequest.password) &&
     ObjectUtils.equals(this.username, adminInitialLoginRequest.username);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(clientMetadata, password, username);
+    return ObjectUtils.hashCodeMulti(dynamicClaim, password, username);
   }
 
 
@@ -126,7 +126,7 @@ public class AdminInitialLoginRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdminInitialLoginRequest {\n");
     
-    sb.append("    clientMetadata: ").append(toIndentedString(clientMetadata)).append("\n");
+    sb.append("    dynamicClaim: ").append(toIndentedString(dynamicClaim)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");

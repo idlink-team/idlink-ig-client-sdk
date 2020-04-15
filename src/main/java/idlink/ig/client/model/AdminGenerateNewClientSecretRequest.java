@@ -24,7 +24,7 @@ import java.io.IOException;
  * AdminGenerateNewClientSecretRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-14T18:48:52.841+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-15T13:55:16.094+08:00[Asia/Shanghai]")
 public class AdminGenerateNewClientSecretRequest {
   @SerializedName("identityId")
   private String identityId = null;
