@@ -1,70 +1,18 @@
 # AdminApi
 
-All URIs are relative to *https://authdemo.id.link:1443*
+All URIs are relative to *https://api.ig.id.link:1443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**adminAddUserAttribute**](AdminApi.md#adminAddUserAttribute) | **POST** /api/adminAddUserAttribute | Add the attribute for a user type as an administrator
 [**adminChangePassword**](AdminApi.md#adminChangePassword) | **POST** /api/adminChangePassword | Changes a user&#x27;s password as an administrator
 [**adminCheckUserExist**](AdminApi.md#adminCheckUserExist) | **POST** /api/adminCheckUserExist | Check whether the user exists as an administrator
 [**adminCreateUser**](AdminApi.md#adminCreateUser) | **POST** /api/adminCreateUser | Creates a new User as an administrator
 [**adminDeleteUser**](AdminApi.md#adminDeleteUser) | **POST** /api/adminDeleteUser | Deletes a user as an administrator
-[**adminDeleteUserAttribute**](AdminApi.md#adminDeleteUserAttribute) | **POST** /api/adminDeleteUserAttribute | Deletes the attribute from a user type as an administrator
 [**adminDisableUser**](AdminApi.md#adminDisableUser) | **POST** /api/adminDisableUser | Disables a user as an administrator
 [**adminEnableUser**](AdminApi.md#adminEnableUser) | **POST** /api/adminEnableUser | Enables a user as an administrator
 [**adminExchangeAccessToken**](AdminApi.md#adminExchangeAccessToken) | **POST** /api/adminExchangeAccessToken | admin Exchange AccessToken
 [**adminInitialLogin**](AdminApi.md#adminInitialLogin) | **POST** /api/adminInitialLogin | Log in and return the tokens as an administrator
-[**adminListUserAttributes**](AdminApi.md#adminListUserAttributes) | **POST** /api/adminListUserAttributes | List the attribute from a user type as an administrator
 [**adminUpdateUser**](AdminApi.md#adminUpdateUser) | **POST** /api/adminUpdateUser | Updates the attribute of a User as an administrator
-
-<a name="adminAddUserAttribute"></a>
-# **adminAddUserAttribute**
-> AdminAddUserAttributeResponse adminAddUserAttribute(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
-
-Add the attribute for a user type as an administrator
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import idlink.ig.client.api.AdminApi;
-
-
-AdminApi apiInstance = new AdminApi();
-AdminAddUserAttributeRequest body = new AdminAddUserAttributeRequest(); // AdminAddUserAttributeRequest | User to add attribute
-String X_API_CLIENT_ID = "X_API_CLIENT_ID_example"; // String | X-API-CLIENT-ID, Get form ID.LINK team.
-Long X_API_TIMESTAMP = 789L; // Long | X-API-TIMESTAMP, The timestamp of calling this api
-String X_API_TOKEN = "X_API_TOKEN_example"; // String | X-API-TOKEN, Generate it by AdminClientTool
-try {
-    AdminAddUserAttributeResponse result = apiInstance.adminAddUserAttribute(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AdminApi#adminAddUserAttribute");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AdminAddUserAttributeRequest**](AdminAddUserAttributeRequest.md)| User to add attribute |
- **X_API_CLIENT_ID** | **String**| X-API-CLIENT-ID, Get form ID.LINK team. |
- **X_API_TIMESTAMP** | **Long**| X-API-TIMESTAMP, The timestamp of calling this api |
- **X_API_TOKEN** | **String**| X-API-TOKEN, Generate it by AdminClientTool |
-
-### Return type
-
-[**AdminAddUserAttributeResponse**](AdminAddUserAttributeResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
 
 <a name="adminChangePassword"></a>
 # **adminChangePassword**
@@ -264,55 +212,6 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="adminDeleteUserAttribute"></a>
-# **adminDeleteUserAttribute**
-> AdminDeleteUserAttributeResponse adminDeleteUserAttribute(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
-
-Deletes the attribute from a user type as an administrator
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import idlink.ig.client.api.AdminApi;
-
-
-AdminApi apiInstance = new AdminApi();
-AdminDeleteUserAttributeRequest body = new AdminDeleteUserAttributeRequest(); // AdminDeleteUserAttributeRequest | User to delete attribute
-String X_API_CLIENT_ID = "X_API_CLIENT_ID_example"; // String | X-API-CLIENT-ID, Get form ID.LINK team.
-Long X_API_TIMESTAMP = 789L; // Long | X-API-TIMESTAMP, The timestamp of calling this api
-String X_API_TOKEN = "X_API_TOKEN_example"; // String | X-API-TOKEN, Generate it by AdminClientTool
-try {
-    AdminDeleteUserAttributeResponse result = apiInstance.adminDeleteUserAttribute(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AdminApi#adminDeleteUserAttribute");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AdminDeleteUserAttributeRequest**](AdminDeleteUserAttributeRequest.md)| User to delete attribute |
- **X_API_CLIENT_ID** | **String**| X-API-CLIENT-ID, Get form ID.LINK team. |
- **X_API_TIMESTAMP** | **Long**| X-API-TIMESTAMP, The timestamp of calling this api |
- **X_API_TOKEN** | **String**| X-API-TOKEN, Generate it by AdminClientTool |
-
-### Return type
-
-[**AdminDeleteUserAttributeResponse**](AdminDeleteUserAttributeResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
 <a name="adminDisableUser"></a>
 # **adminDisableUser**
 > AdminDisableUserResponse adminDisableUser(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
@@ -413,7 +312,7 @@ No authorization required
 
 <a name="adminExchangeAccessToken"></a>
 # **adminExchangeAccessToken**
-> String adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
+> AdminExchangeAccessTokenResponse adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
 
 admin Exchange AccessToken
 
@@ -430,7 +329,7 @@ String X_API_CLIENT_ID = "X_API_CLIENT_ID_example"; // String | X-API-CLIENT-ID,
 Long X_API_TIMESTAMP = 789L; // Long | X-API-TIMESTAMP, The timestamp of calling this api
 String X_API_TOKEN = "X_API_TOKEN_example"; // String | X-API-TOKEN, Generate it by AdminClientTool
 try {
-    String result = apiInstance.adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
+    AdminExchangeAccessTokenResponse result = apiInstance.adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AdminApi#adminExchangeAccessToken");
@@ -449,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**AdminExchangeAccessTokenResponse**](AdminExchangeAccessTokenResponse.md)
 
 ### Authorization
 
@@ -462,7 +361,7 @@ No authorization required
 
 <a name="adminInitialLogin"></a>
 # **adminInitialLogin**
-> String adminInitialLogin(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
+> AdminInitialLoginResponse adminInitialLogin(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
 
 Log in and return the tokens as an administrator
 
@@ -479,7 +378,7 @@ String X_API_CLIENT_ID = "X_API_CLIENT_ID_example"; // String | X-API-CLIENT-ID,
 Long X_API_TIMESTAMP = 789L; // Long | X-API-TIMESTAMP, The timestamp of calling this api
 String X_API_TOKEN = "X_API_TOKEN_example"; // String | X-API-TOKEN, Generate it by AdminClientTool
 try {
-    String result = apiInstance.adminInitialLogin(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
+    AdminInitialLoginResponse result = apiInstance.adminInitialLogin(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AdminApi#adminInitialLogin");
@@ -498,56 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-<a name="adminListUserAttributes"></a>
-# **adminListUserAttributes**
-> AdminListUserAttributesResponse adminListUserAttributes(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN)
-
-List the attribute from a user type as an administrator
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import idlink.ig.client.api.AdminApi;
-
-
-AdminApi apiInstance = new AdminApi();
-AdminListUserAttributesRequest body = new AdminListUserAttributesRequest(); // AdminListUserAttributesRequest | User to list attributes
-String X_API_CLIENT_ID = "X_API_CLIENT_ID_example"; // String | X-API-CLIENT-ID, Get form ID.LINK team.
-Long X_API_TIMESTAMP = 789L; // Long | X-API-TIMESTAMP, The timestamp of calling this api
-String X_API_TOKEN = "X_API_TOKEN_example"; // String | X-API-TOKEN, Generate it by AdminClientTool
-try {
-    AdminListUserAttributesResponse result = apiInstance.adminListUserAttributes(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AdminApi#adminListUserAttributes");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AdminListUserAttributesRequest**](AdminListUserAttributesRequest.md)| User to list attributes |
- **X_API_CLIENT_ID** | **String**| X-API-CLIENT-ID, Get form ID.LINK team. |
- **X_API_TIMESTAMP** | **Long**| X-API-TIMESTAMP, The timestamp of calling this api |
- **X_API_TOKEN** | **String**| X-API-TOKEN, Generate it by AdminClientTool |
-
-### Return type
-
-[**AdminListUserAttributesResponse**](AdminListUserAttributesResponse.md)
+[**AdminInitialLoginResponse**](AdminInitialLoginResponse.md)
 
 ### Authorization
 

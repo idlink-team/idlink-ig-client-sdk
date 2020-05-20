@@ -27,13 +27,13 @@ import java.util.Map;
  * AdminExchangeAccessTokenRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:08:53.355+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-05-20T14:36:13.595+08:00[Asia/Shanghai]")
 public class AdminExchangeAccessTokenRequest {
   @SerializedName("accessToken")
   private String accessToken = null;
 
-  @SerializedName("clientMetadata")
-  private Map<String, Object> clientMetadata = null;
+  @SerializedName("dynamicClaim")
+  private Map<String, Object> dynamicClaim = null;
 
   public AdminExchangeAccessTokenRequest accessToken(String accessToken) {
     this.accessToken = accessToken;
@@ -53,30 +53,30 @@ public class AdminExchangeAccessTokenRequest {
     this.accessToken = accessToken;
   }
 
-  public AdminExchangeAccessTokenRequest clientMetadata(Map<String, Object> clientMetadata) {
-    this.clientMetadata = clientMetadata;
+  public AdminExchangeAccessTokenRequest dynamicClaim(Map<String, Object> dynamicClaim) {
+    this.dynamicClaim = dynamicClaim;
     return this;
   }
 
-  public AdminExchangeAccessTokenRequest putClientMetadataItem(String key, Object clientMetadataItem) {
-    if (this.clientMetadata == null) {
-      this.clientMetadata = new HashMap<String, Object>();
+  public AdminExchangeAccessTokenRequest putDynamicClaimItem(String key, Object dynamicClaimItem) {
+    if (this.dynamicClaim == null) {
+      this.dynamicClaim = new HashMap<String, Object>();
     }
-    this.clientMetadata.put(key, clientMetadataItem);
+    this.dynamicClaim.put(key, dynamicClaimItem);
     return this;
   }
 
    /**
    * Client meta data
-   * @return clientMetadata
+   * @return dynamicClaim
   **/
   @Schema(example = "{\"param1\":\"value1\",\"param2\":\"value2\"}", description = "Client meta data")
-  public Map<String, Object> getClientMetadata() {
-    return clientMetadata;
+  public Map<String, Object> getDynamicClaim() {
+    return dynamicClaim;
   }
 
-  public void setClientMetadata(Map<String, Object> clientMetadata) {
-    this.clientMetadata = clientMetadata;
+  public void setDynamicClaim(Map<String, Object> dynamicClaim) {
+    this.dynamicClaim = dynamicClaim;
   }
 
 
@@ -90,12 +90,12 @@ public class AdminExchangeAccessTokenRequest {
   }
     AdminExchangeAccessTokenRequest adminExchangeAccessTokenRequest = (AdminExchangeAccessTokenRequest) o;
     return ObjectUtils.equals(this.accessToken, adminExchangeAccessTokenRequest.accessToken) &&
-    ObjectUtils.equals(this.clientMetadata, adminExchangeAccessTokenRequest.clientMetadata);
+    ObjectUtils.equals(this.dynamicClaim, adminExchangeAccessTokenRequest.dynamicClaim);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(accessToken, clientMetadata);
+    return ObjectUtils.hashCodeMulti(accessToken, dynamicClaim);
   }
 
 
@@ -105,7 +105,7 @@ public class AdminExchangeAccessTokenRequest {
     sb.append("class AdminExchangeAccessTokenRequest {\n");
     
     sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    clientMetadata: ").append(toIndentedString(clientMetadata)).append("\n");
+    sb.append("    dynamicClaim: ").append(toIndentedString(dynamicClaim)).append("\n");
     sb.append("}");
     return sb.toString();
   }

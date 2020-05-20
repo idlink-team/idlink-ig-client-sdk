@@ -27,54 +27,10 @@ import java.util.Map;
  * AdminUpdateUserRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-02T17:08:53.355+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-05-20T14:36:13.595+08:00[Asia/Shanghai]")
 public class AdminUpdateUserRequest {
   @SerializedName("attributes")
   private Map<String, Object> attributes = new HashMap<String, Object>();
-
-  /**
-   * The type of user
-   */
-  @JsonAdapter(UserTypeEnum.Adapter.class)
-  public enum UserTypeEnum {
-    DEVICE("DEVICE"),
-    PERSON("PERSON");
-
-    private String value;
-
-    UserTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static UserTypeEnum fromValue(String text) {
-      for (UserTypeEnum b : UserTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<UserTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final UserTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public UserTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return UserTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }  @SerializedName("userType")
-  private UserTypeEnum userType = null;
 
   @SerializedName("username")
   private String username = null;
@@ -90,34 +46,16 @@ public class AdminUpdateUserRequest {
   }
 
    /**
-   *      The attributes of user. Key is the attribute name and value is the attribute value.     Person default attributes: username, password, enable, mobile.     Device default attributes: username, password.     Calling adminAddUserAttribute API to add more attributes.     
+   * The attributes of current identity. Key is the attribute name and value is the attribute value. And the key cannot be either password or enable
    * @return attributes
   **/
-  @Schema(example = "{\"username\":\"Jack\",\"password\":\"password\",\"enable\":true,\"mobile\":1237899}", required = true, description = "     The attributes of user. Key is the attribute name and value is the attribute value.     Person default attributes: username, password, enable, mobile.     Device default attributes: username, password.     Calling adminAddUserAttribute API to add more attributes.     ")
+  @Schema(example = "{\"username\":\"Jack\"}", required = true, description = "The attributes of current identity. Key is the attribute name and value is the attribute value. And the key cannot be either password or enable")
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
-  }
-
-  public AdminUpdateUserRequest userType(UserTypeEnum userType) {
-    this.userType = userType;
-    return this;
-  }
-
-   /**
-   * The type of user
-   * @return userType
-  **/
-  @Schema(example = "PERSON", required = true, description = "The type of user")
-  public UserTypeEnum getUserType() {
-    return userType;
-  }
-
-  public void setUserType(UserTypeEnum userType) {
-    this.userType = userType;
   }
 
   public AdminUpdateUserRequest username(String username) {
@@ -129,7 +67,7 @@ public class AdminUpdateUserRequest {
    * The old username of data which you are going to modify
    * @return username
   **/
-  @Schema(example = "Jack", required = true, description = "The old username of data which you are going to modify")
+  @Schema(example = "Jack2", required = true, description = "The old username of data which you are going to modify")
   public String getUsername() {
     return username;
   }
@@ -149,13 +87,12 @@ public class AdminUpdateUserRequest {
   }
     AdminUpdateUserRequest adminUpdateUserRequest = (AdminUpdateUserRequest) o;
     return ObjectUtils.equals(this.attributes, adminUpdateUserRequest.attributes) &&
-    ObjectUtils.equals(this.userType, adminUpdateUserRequest.userType) &&
     ObjectUtils.equals(this.username, adminUpdateUserRequest.username);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(attributes, userType, username);
+    return ObjectUtils.hashCodeMulti(attributes, username);
   }
 
 
@@ -165,7 +102,6 @@ public class AdminUpdateUserRequest {
     sb.append("class AdminUpdateUserRequest {\n");
     
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();

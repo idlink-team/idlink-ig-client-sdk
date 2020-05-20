@@ -13,16 +13,12 @@
 package idlink.ig.client.api;
 
 import io.swagger.client.ApiException;
-import idlink.ig.client.model.AdminAddUserAttributeRequest;
-import idlink.ig.client.model.AdminAddUserAttributeResponse;
 import idlink.ig.client.model.AdminChangePasswordRequest;
 import idlink.ig.client.model.AdminChangePasswordResponse;
 import idlink.ig.client.model.AdminCheckUserRequest;
 import idlink.ig.client.model.AdminCheckUserResponse;
 import idlink.ig.client.model.AdminCreateUserRequest;
 import idlink.ig.client.model.AdminCreateUserResponse;
-import idlink.ig.client.model.AdminDeleteUserAttributeRequest;
-import idlink.ig.client.model.AdminDeleteUserAttributeResponse;
 import idlink.ig.client.model.AdminDeleteUserRequest;
 import idlink.ig.client.model.AdminDeleteUserResponse;
 import idlink.ig.client.model.AdminDisableUserRequest;
@@ -30,9 +26,9 @@ import idlink.ig.client.model.AdminDisableUserResponse;
 import idlink.ig.client.model.AdminEnableUserRequest;
 import idlink.ig.client.model.AdminEnableUserResponse;
 import idlink.ig.client.model.AdminExchangeAccessTokenRequest;
+import idlink.ig.client.model.AdminExchangeAccessTokenResponse;
 import idlink.ig.client.model.AdminInitialLoginRequest;
-import idlink.ig.client.model.AdminListUserAttributesRequest;
-import idlink.ig.client.model.AdminListUserAttributesResponse;
+import idlink.ig.client.model.AdminInitialLoginResponse;
 import idlink.ig.client.model.AdminUpdateUserRequest;
 import idlink.ig.client.model.AdminUpdateUserResponse;
 import org.junit.Test;
@@ -51,24 +47,6 @@ public class AdminApiTest {
 
     private final AdminApi api = new AdminApi();
 
-    /**
-     * Add the attribute for a user type as an administrator
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void adminAddUserAttributeTest() throws ApiException {
-        AdminAddUserAttributeRequest body = null;
-        String X_API_CLIENT_ID = null;
-        Long X_API_TIMESTAMP = null;
-        String X_API_TOKEN = null;
-        AdminAddUserAttributeResponse response = api.adminAddUserAttribute(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
-
-        // TODO: test validations
-    }
     /**
      * Changes a user&#x27;s password as an administrator
      *
@@ -142,24 +120,6 @@ public class AdminApiTest {
         // TODO: test validations
     }
     /**
-     * Deletes the attribute from a user type as an administrator
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void adminDeleteUserAttributeTest() throws ApiException {
-        AdminDeleteUserAttributeRequest body = null;
-        String X_API_CLIENT_ID = null;
-        Long X_API_TIMESTAMP = null;
-        String X_API_TOKEN = null;
-        AdminDeleteUserAttributeResponse response = api.adminDeleteUserAttribute(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
-
-        // TODO: test validations
-    }
-    /**
      * Disables a user as an administrator
      *
      * 
@@ -209,7 +169,7 @@ public class AdminApiTest {
         String X_API_CLIENT_ID = null;
         Long X_API_TIMESTAMP = null;
         String X_API_TOKEN = null;
-        String response = api.adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
+        AdminExchangeAccessTokenResponse response = api.adminExchangeAccessToken(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
 
         // TODO: test validations
     }
@@ -227,25 +187,7 @@ public class AdminApiTest {
         String X_API_CLIENT_ID = null;
         Long X_API_TIMESTAMP = null;
         String X_API_TOKEN = null;
-        String response = api.adminInitialLogin(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
-
-        // TODO: test validations
-    }
-    /**
-     * List the attribute from a user type as an administrator
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void adminListUserAttributesTest() throws ApiException {
-        AdminListUserAttributesRequest body = null;
-        String X_API_CLIENT_ID = null;
-        Long X_API_TIMESTAMP = null;
-        String X_API_TOKEN = null;
-        AdminListUserAttributesResponse response = api.adminListUserAttributes(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
+        AdminInitialLoginResponse response = api.adminInitialLogin(body, X_API_CLIENT_ID, X_API_TIMESTAMP, X_API_TOKEN);
 
         // TODO: test validations
     }
