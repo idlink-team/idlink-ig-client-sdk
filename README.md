@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>idlink</groupId>
   <artifactId>idlink-ig-client</artifactId>
-  <version>1.0.1</version>
+  <version>1.1.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "idlink:idlink-ig-client:1.0.1"
+compile "idlink:idlink-ig-client:1.1.1"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/idlink-ig-client-1.0.1.jar`
+* `target/idlink-ig-client-1.1.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
