@@ -1,6 +1,6 @@
 # TenantApi
 
-All URIs are relative to *https://authdemo.id.link:1443*
+All URIs are relative to *https://api.ig.id.link:1443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -1,10 +1,11 @@
 # OAuth2Api
 
-All URIs are relative to *https://authdemo.id.link:1443*
+All URIs are relative to *https://api.ig.id.link:1443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**jwkList**](OAuth2Api.md#jwkList) | **GET** /jwk | jwt list
+[**oAuth2AuthorizeGetCode**](OAuth2Api.md#oAuth2AuthorizeGetCode) | **POST** /oauth2/authorize/codeOnly | oauth2 user&#x27;s getCode
 [**oAuth2GetUserInfo**](OAuth2Api.md#oAuth2GetUserInfo) | **POST** /oauth2/userInfo | OAuth2 get user info
 [**oAuth2Token**](OAuth2Api.md#oAuth2Token) | **POST** /oauth2/token | oauth2 user&#x27;s token
 [**oAuth2VerifyAccessToken**](OAuth2Api.md#oAuth2VerifyAccessToken) | **POST** /oauth2/verify/access_token | OAuth2 verify Access Token
@@ -48,6 +49,53 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="oAuth2AuthorizeGetCode"></a>
+# **oAuth2AuthorizeGetCode**
+> OAuth2GetReqCodeResponse oAuth2AuthorizeGetCode(redirectUri, state, authorization)
+
+oauth2 user&#x27;s getCode
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import idlink.ig.client.api.OAuth2Api;
+
+
+OAuth2Api apiInstance = new OAuth2Api();
+String redirectUri = "redirectUri_example"; // String | 
+String state = "state_example"; // String | 
+String authorization = "authorization_example"; // String | Authorization, Get form ID.LINK team.
+try {
+    OAuth2GetReqCodeResponse result = apiInstance.oAuth2AuthorizeGetCode(redirectUri, state, authorization);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OAuth2Api#oAuth2AuthorizeGetCode");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **redirectUri** | **String**|  | [optional]
+ **state** | **String**|  | [optional]
+ **authorization** | **String**| Authorization, Get form ID.LINK team. | [optional]
+
+### Return type
+
+[**OAuth2GetReqCodeResponse**](OAuth2GetReqCodeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: */*
 
 <a name="oAuth2GetUserInfo"></a>
@@ -97,7 +145,7 @@ No authorization required
 
 <a name="oAuth2Token"></a>
 # **oAuth2Token**
-> OAuth2LoginResponse oAuth2Token(grantType, password, refreshToken, username, authorization)
+> OAuth2LoginResponse oAuth2Token(clientId, clientSecret, code, grantType, password, redirectUri, refreshToken, username, authorization)
 
 oauth2 user&#x27;s token
 
@@ -109,13 +157,17 @@ oauth2 user&#x27;s token
 
 
 OAuth2Api apiInstance = new OAuth2Api();
+String clientId = "clientId_example"; // String | 
+String clientSecret = "clientSecret_example"; // String | 
+String code = "code_example"; // String | 
 String grantType = "grantType_example"; // String | 
 String password = "password_example"; // String | 
+String redirectUri = "redirectUri_example"; // String | 
 String refreshToken = "refreshToken_example"; // String | 
 String username = "username_example"; // String | 
 String authorization = "authorization_example"; // String | Authorization, Get form ID.LINK team.
 try {
-    OAuth2LoginResponse result = apiInstance.oAuth2Token(grantType, password, refreshToken, username, authorization);
+    OAuth2LoginResponse result = apiInstance.oAuth2Token(clientId, clientSecret, code, grantType, password, redirectUri, refreshToken, username, authorization);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OAuth2Api#oAuth2Token");
@@ -127,11 +179,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **clientId** | **String**|  |
+ **clientSecret** | **String**|  |
+ **code** | **String**|  |
  **grantType** | **String**|  |
  **password** | **String**|  |
+ **redirectUri** | **String**|  |
  **refreshToken** | **String**|  |
  **username** | **String**|  |
- **authorization** | **String**| Authorization, Get form ID.LINK team. |
+ **authorization** | **String**| Authorization, Get form ID.LINK team. | [optional]
 
 ### Return type
 
@@ -193,7 +249,7 @@ No authorization required
 
 <a name="openidConfiguration"></a>
 # **openidConfiguration**
-> Object openidConfiguration()
+> Map&lt;String, Object&gt; openidConfiguration()
 
 openid configuration
 
@@ -206,7 +262,7 @@ openid configuration
 
 OAuth2Api apiInstance = new OAuth2Api();
 try {
-    Object result = apiInstance.openidConfiguration();
+    Map<String, Object> result = apiInstance.openidConfiguration();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OAuth2Api#openidConfiguration");
@@ -219,7 +275,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+**Map&lt;String, Object&gt;**
 
 ### Authorization
 

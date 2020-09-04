@@ -25,7 +25,7 @@ import java.io.IOException;
  */
 @Schema(description = "Response data model")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-09-04T17:05:14.246+08:00[Asia/Shanghai]")
-public class AdminInitialLoginResponse {
+public class OAuth2GetReqCodeResponse {
   @SerializedName("data")
   private String data = null;
 
@@ -35,7 +35,7 @@ public class AdminInitialLoginResponse {
   @SerializedName("httpStatus")
   private String httpStatus = null;
 
-  public AdminInitialLoginResponse data(String data) {
+  public OAuth2GetReqCodeResponse data(String data) {
     this.data = data;
     return this;
   }
@@ -53,7 +53,7 @@ public class AdminInitialLoginResponse {
     this.data = data;
   }
 
-  public AdminInitialLoginResponse detail(String detail) {
+  public OAuth2GetReqCodeResponse detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -71,7 +71,7 @@ public class AdminInitialLoginResponse {
     this.detail = detail;
   }
 
-  public AdminInitialLoginResponse httpStatus(String httpStatus) {
+  public OAuth2GetReqCodeResponse httpStatus(String httpStatus) {
     this.httpStatus = httpStatus;
     return this;
   }
@@ -98,10 +98,10 @@ public class AdminInitialLoginResponse {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    AdminInitialLoginResponse adminInitialLoginResponse = (AdminInitialLoginResponse) o;
-    return ObjectUtils.equals(this.data, adminInitialLoginResponse.data) &&
-    ObjectUtils.equals(this.detail, adminInitialLoginResponse.detail) &&
-    ObjectUtils.equals(this.httpStatus, adminInitialLoginResponse.httpStatus);
+    OAuth2GetReqCodeResponse oauth2GetReqCodeResponse = (OAuth2GetReqCodeResponse) o;
+    return ObjectUtils.equals(this.data, oauth2GetReqCodeResponse.data) &&
+    ObjectUtils.equals(this.detail, oauth2GetReqCodeResponse.detail) &&
+    ObjectUtils.equals(this.httpStatus, oauth2GetReqCodeResponse.httpStatus);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class AdminInitialLoginResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AdminInitialLoginResponse {\n");
+    sb.append("class OAuth2GetReqCodeResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
