@@ -25,7 +25,7 @@ import java.io.IOException;
  */
 @Schema(description = "Response data model")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-09-09T12:01:47.809+08:00[Asia/Shanghai]")
-public class OAuth2GetReqCodeResponse {
+public class OAuth2GetAuthCodeResponse {
   @SerializedName("data")
   private String data = null;
 
@@ -35,7 +35,7 @@ public class OAuth2GetReqCodeResponse {
   @SerializedName("httpStatus")
   private String httpStatus = null;
 
-  public OAuth2GetReqCodeResponse data(String data) {
+  public OAuth2GetAuthCodeResponse data(String data) {
     this.data = data;
     return this;
   }
@@ -53,7 +53,7 @@ public class OAuth2GetReqCodeResponse {
     this.data = data;
   }
 
-  public OAuth2GetReqCodeResponse detail(String detail) {
+  public OAuth2GetAuthCodeResponse detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -71,7 +71,7 @@ public class OAuth2GetReqCodeResponse {
     this.detail = detail;
   }
 
-  public OAuth2GetReqCodeResponse httpStatus(String httpStatus) {
+  public OAuth2GetAuthCodeResponse httpStatus(String httpStatus) {
     this.httpStatus = httpStatus;
     return this;
   }
@@ -98,10 +98,10 @@ public class OAuth2GetReqCodeResponse {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    OAuth2GetReqCodeResponse oauth2GetReqCodeResponse = (OAuth2GetReqCodeResponse) o;
-    return ObjectUtils.equals(this.data, oauth2GetReqCodeResponse.data) &&
-    ObjectUtils.equals(this.detail, oauth2GetReqCodeResponse.detail) &&
-    ObjectUtils.equals(this.httpStatus, oauth2GetReqCodeResponse.httpStatus);
+    OAuth2GetAuthCodeResponse oauth2GetAuthCodeResponse = (OAuth2GetAuthCodeResponse) o;
+    return ObjectUtils.equals(this.data, oauth2GetAuthCodeResponse.data) &&
+    ObjectUtils.equals(this.detail, oauth2GetAuthCodeResponse.detail) &&
+    ObjectUtils.equals(this.httpStatus, oauth2GetAuthCodeResponse.httpStatus);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class OAuth2GetReqCodeResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OAuth2GetReqCodeResponse {\n");
+    sb.append("class OAuth2GetAuthCodeResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");

@@ -26,16 +26,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import idlink.ig.client.model.OAuth2GetAuthCodeResponse;
 import idlink.ig.client.model.OAuth2GetReqCodeResponse;
 import idlink.ig.client.model.OAuth2GetUserInfoResponse;
 import idlink.ig.client.model.OAuth2LoginResponse;
 import idlink.ig.client.model.OAuth2VerifyAccessTokenResponse;
+import sun.misc.BASE64Decoder;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class OAuth2Api {
     private ApiClient apiClient;
@@ -443,6 +442,162 @@ public class OAuth2Api {
         return call;
     }
     /**
+     * Build call for oAuth2OAuth2LoginGetCode
+     * @param password  (required)
+     * @param reqcode  (required)
+     * @param userName  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call oAuth2OAuth2LoginGetCodeCall(String password, String reqcode, String userName, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/oauth2/login/codeOnly";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (authorization != null)
+        localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (password != null)
+        localVarFormParams.put("password", password);
+        if (reqcode != null)
+        localVarFormParams.put("reqcode", reqcode);
+        if (userName != null)
+        localVarFormParams.put("userName", userName);
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call oAuth2OAuth2LoginGetCodeValidateBeforeCall(String password, String reqcode, String userName, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'password' is set
+        if (password == null) {
+            throw new ApiException("Missing the required parameter 'password' when calling oAuth2OAuth2LoginGetCode(Async)");
+        }
+        // verify the required parameter 'reqcode' is set
+        if (reqcode == null) {
+            throw new ApiException("Missing the required parameter 'reqcode' when calling oAuth2OAuth2LoginGetCode(Async)");
+        }
+        // verify the required parameter 'userName' is set
+        if (userName == null) {
+            throw new ApiException("Missing the required parameter 'userName' when calling oAuth2OAuth2LoginGetCode(Async)");
+        }
+        // verify the required parameter 'authorization' is set
+        if (authorization == null) {
+            throw new ApiException("Missing the required parameter 'authorization' when calling oAuth2OAuth2LoginGetCode(Async)");
+        }
+
+        com.squareup.okhttp.Call call = oAuth2OAuth2LoginGetCodeCall(password, reqcode, userName, authorization, progressListener, progressRequestListener);
+        return call;
+
+
+
+
+
+    }
+
+    /**
+     * oauth2 user&#x27;s login getCode
+     *
+     * @param password  (required)
+     * @param reqcode  (required)
+     * @param userName  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (required)
+     * @return OAuth2GetAuthCodeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OAuth2GetAuthCodeResponse oAuth2OAuth2LoginGetCode(String password, String reqcode, String userName, String authorization) throws ApiException {
+        ApiResponse<OAuth2GetAuthCodeResponse> resp = oAuth2OAuth2LoginGetCodeWithHttpInfo(password, reqcode, userName, authorization);
+        return resp.getData();
+    }
+
+    /**
+     * oauth2 user&#x27;s login getCode
+     *
+     * @param password  (required)
+     * @param reqcode  (required)
+     * @param userName  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (required)
+     * @return ApiResponse&lt;OAuth2GetAuthCodeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OAuth2GetAuthCodeResponse> oAuth2OAuth2LoginGetCodeWithHttpInfo(String password, String reqcode, String userName, String authorization) throws ApiException {
+        com.squareup.okhttp.Call call = oAuth2OAuth2LoginGetCodeValidateBeforeCall(password, reqcode, userName, authorization, null, null);
+        Type localVarReturnType = new TypeToken<OAuth2GetAuthCodeResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * oauth2 user&#x27;s login getCode (asynchronously)
+     *
+     * @param password  (required)
+     * @param reqcode  (required)
+     * @param userName  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call oAuth2OAuth2LoginGetCodeAsync(String password, String reqcode, String userName, String authorization, final ApiCallback<OAuth2GetAuthCodeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = oAuth2OAuth2LoginGetCodeValidateBeforeCall(password, reqcode, userName, authorization, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OAuth2GetAuthCodeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for oAuth2Token
      * @param clientId  (required)
      * @param clientSecret  (required)
@@ -576,6 +731,42 @@ public class OAuth2Api {
         ApiResponse<OAuth2LoginResponse> resp = oAuth2TokenWithHttpInfo("", "", "", grantType, password, "", refreshToken, username, authorization);
         return resp.getData();
     }
+
+    /**
+     * oauth2 user&#x27;s token
+     *
+     * @param grantType  (required)
+     * @param refreshToken  (optional)
+     * @param password  (required)
+     * @param authCode  (required)
+     * @param username  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (required)
+     * @return OAuth2LoginResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OAuth2LoginResponse oAuth2TokenByCode(String grantType, String username, String password, String authCode, String refreshToken, String authorization) throws ApiException {
+        List<String> auth = decodeAuth(authorization);
+        ApiResponse<OAuth2LoginResponse> resp = oAuth2TokenWithHttpInfo(auth.get(0), auth.get(1), authCode, grantType, password, "sdk", refreshToken, username, null);
+        return resp.getData();
+    }
+
+    private List<String> decodeAuth(String authorization) {
+        List<String> result = new ArrayList<>();
+        try {
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] b = decoder.decodeBuffer(authorization.split(" ")[1]);
+
+            String idAndSecret = new String(b,"utf-8");
+            String[] split = idAndSecret.split(":");
+            for (String s : split) {
+                result.add(s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
     /**
      * oauth2 user&#x27;s token
