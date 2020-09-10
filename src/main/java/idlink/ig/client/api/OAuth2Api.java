@@ -894,6 +894,22 @@ public class OAuth2Api {
     /**
      * oauth2 user&#x27;s token
      *
+     * @param grantType  (required)
+     * @param password  (required)
+     * @param refreshToken  (required)
+     * @param username  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (optional)
+     * @return OAuth2LoginResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OAuth2LoginResponse oAuth2Token(String grantType, String password, String refreshToken, String username, String authorization) throws ApiException {
+        ApiResponse<OAuth2LoginResponse> resp = oAuth2TokenWithHttpInfo("", "", "", grantType, password, "", refreshToken, username, authorization);
+        return resp.getData();
+    }
+
+    /**
+     * oauth2 user&#x27;s token
+     *
      * @param clientId  (required)
      * @param clientSecret  (required)
      * @param code  (required)
