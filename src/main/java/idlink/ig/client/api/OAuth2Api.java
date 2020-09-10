@@ -12,6 +12,7 @@
 
 package idlink.ig.client.api;
 
+import idlink.ig.client.model.*;
 import io.swagger.client.ApiCallback;
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
@@ -26,11 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import idlink.ig.client.model.OAuth2GetAuthCodeResponse;
-import idlink.ig.client.model.OAuth2GetReqCodeResponse;
-import idlink.ig.client.model.OAuth2GetUserInfoResponse;
-import idlink.ig.client.model.OAuth2LoginResponse;
-import idlink.ig.client.model.OAuth2VerifyAccessTokenResponse;
 import sun.misc.BASE64Decoder;
 
 import java.lang.reflect.Type;
@@ -737,16 +733,14 @@ public class OAuth2Api {
      *
      * @param grantType  (required)
      * @param refreshToken  (optional)
-     * @param password  (required)
      * @param authCode  (required)
-     * @param username  (required)
      * @param authorization Authorization, Get form ID.LINK team. (required)
      * @return OAuth2LoginResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OAuth2LoginResponse oAuth2TokenByCode(String grantType, String username, String password, String authCode, String refreshToken, String authorization) throws ApiException {
+    public String oAuth2TokenByCode(String grantType, String authCode, String refreshToken, String authorization) throws ApiException {
         List<String> auth = decodeAuth(authorization);
-        ApiResponse<OAuth2LoginResponse> resp = oAuth2TokenWithHttpInfo(auth.get(0), auth.get(1), authCode, grantType, password, "sdk", refreshToken, username, null);
+        ApiResponse<String> resp = oAuth2TokenWithHttpInfoForCode(auth.get(0), auth.get(1), authCode, grantType, "", "", refreshToken, "", null);
         return resp.getData();
     }
 
@@ -788,6 +782,26 @@ public class OAuth2Api {
         return resp.getData();
     }
 
+    /**
+     * oauth2 user&#x27;s token
+     *
+     * @param clientId  (required)
+     * @param clientSecret  (required)
+     * @param code  (required)
+     * @param grantType  (required)
+     * @param password  (required)
+     * @param redirectUri  (required)
+     * @param refreshToken  (required)
+     * @param username  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (optional)
+     * @return ApiResponse&lt;OAuth2LoginResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<String> oAuth2TokenWithHttpInfoForCode(String clientId, String clientSecret, String code, String grantType, String password, String redirectUri, String refreshToken, String username, String authorization) throws ApiException {
+        com.squareup.okhttp.Call call = oAuth2TokenValidateBeforeCall(clientId, clientSecret, code, grantType, password, redirectUri, refreshToken, username, authorization, null, null);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
     /**
      * oauth2 user&#x27;s token
      *
