@@ -17,6 +17,7 @@ import idlink.ig.client.model.OAuth2GetAuthCodeResponse;
 import idlink.ig.client.model.OAuth2GetReqCodeResponse;
 import idlink.ig.client.model.OAuth2GetUserInfoResponse;
 import idlink.ig.client.model.OAuth2LoginResponse;
+import idlink.ig.client.model.OAuth2TmallResponse;
 import idlink.ig.client.model.OAuth2VerifyAccessTokenResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -96,6 +97,24 @@ public class OAuth2ApiTest {
         String userName = null;
         String authorization = null;
         OAuth2GetAuthCodeResponse response = api.oAuth2OAuth2LoginGetCode(password, reqcode, userName, authorization);
+
+        // TODO: test validations
+    }
+    /**
+     * oauth2 user&#x27;s token for tmall
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void oAuth2TmallTokenTest() throws ApiException {
+        String code = null;
+        String grantType = null;
+        String refreshToken = null;
+        String authorization = null;
+        OAuth2TmallResponse response = api.oAuth2TmallToken(code, grantType, refreshToken, authorization);
 
         // TODO: test validations
     }

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**oAuth2AuthorizeGetCode**](OAuth2Api.md#oAuth2AuthorizeGetCode) | **POST** /oauth2/authorize/codeOnly | oauth2 user&#x27;s getCode
 [**oAuth2GetUserInfo**](OAuth2Api.md#oAuth2GetUserInfo) | **POST** /oauth2/userInfo | OAuth2 get user info
 [**oAuth2OAuth2LoginGetCode**](OAuth2Api.md#oAuth2OAuth2LoginGetCode) | **POST** /oauth2/login/codeOnly | oauth2 user&#x27;s login getCode
+[**oAuth2TmallToken**](OAuth2Api.md#oAuth2TmallToken) | **POST** /oauth2/tmall/token | oauth2 user&#x27;s token for tmall
 [**oAuth2Token**](OAuth2Api.md#oAuth2Token) | **POST** /oauth2/token | oauth2 user&#x27;s token
 [**oAuth2VerifyAccessToken**](OAuth2Api.md#oAuth2VerifyAccessToken) | **POST** /oauth2/verify/access_token | OAuth2 verify Access Token
 [**openidConfiguration**](OAuth2Api.md#openidConfiguration) | **GET** /.well-known/openid-configuration | openid configuration
@@ -183,6 +184,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OAuth2GetAuthCodeResponse**](OAuth2GetAuthCodeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: */*
+
+<a name="oAuth2TmallToken"></a>
+# **oAuth2TmallToken**
+> OAuth2TmallResponse oAuth2TmallToken(code, grantType, refreshToken, authorization)
+
+oauth2 user&#x27;s token for tmall
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import idlink.ig.client.api.OAuth2Api;
+
+
+OAuth2Api apiInstance = new OAuth2Api();
+String code = "code_example"; // String | 
+String grantType = "grantType_example"; // String | 
+String refreshToken = "refreshToken_example"; // String | 
+String authorization = "authorization_example"; // String | Authorization, Get form ID.LINK team.
+try {
+    OAuth2TmallResponse result = apiInstance.oAuth2TmallToken(code, grantType, refreshToken, authorization);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OAuth2Api#oAuth2TmallToken");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code** | **String**|  |
+ **grantType** | **String**|  |
+ **refreshToken** | **String**|  |
+ **authorization** | **String**| Authorization, Get form ID.LINK team. | [optional]
+
+### Return type
+
+[**OAuth2TmallResponse**](OAuth2TmallResponse.md)
 
 ### Authorization
 

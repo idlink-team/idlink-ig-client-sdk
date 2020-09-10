@@ -12,7 +12,6 @@
 
 package idlink.ig.client.api;
 
-import idlink.ig.client.model.*;
 import io.swagger.client.ApiCallback;
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
@@ -27,10 +26,18 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import sun.misc.BASE64Decoder;
+import idlink.ig.client.model.OAuth2GetAuthCodeResponse;
+import idlink.ig.client.model.OAuth2GetReqCodeResponse;
+import idlink.ig.client.model.OAuth2GetUserInfoResponse;
+import idlink.ig.client.model.OAuth2LoginResponse;
+import idlink.ig.client.model.OAuth2TmallResponse;
+import idlink.ig.client.model.OAuth2VerifyAccessTokenResponse;
 
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class OAuth2Api {
     private ApiClient apiClient;
@@ -594,6 +601,158 @@ public class OAuth2Api {
         return call;
     }
     /**
+     * Build call for oAuth2TmallToken
+     * @param code  (required)
+     * @param grantType  (required)
+     * @param refreshToken  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call oAuth2TmallTokenCall(String code, String grantType, String refreshToken, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/oauth2/tmall/token";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (authorization != null)
+        localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (code != null)
+        localVarFormParams.put("code", code);
+        if (grantType != null)
+        localVarFormParams.put("grant_type", grantType);
+        if (refreshToken != null)
+        localVarFormParams.put("refresh_token", refreshToken);
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call oAuth2TmallTokenValidateBeforeCall(String code, String grantType, String refreshToken, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'code' is set
+        if (code == null) {
+            throw new ApiException("Missing the required parameter 'code' when calling oAuth2TmallToken(Async)");
+        }
+        // verify the required parameter 'grantType' is set
+        if (grantType == null) {
+            throw new ApiException("Missing the required parameter 'grantType' when calling oAuth2TmallToken(Async)");
+        }
+        // verify the required parameter 'refreshToken' is set
+        if (refreshToken == null) {
+            throw new ApiException("Missing the required parameter 'refreshToken' when calling oAuth2TmallToken(Async)");
+        }
+
+        com.squareup.okhttp.Call call = oAuth2TmallTokenCall(code, grantType, refreshToken, authorization, progressListener, progressRequestListener);
+        return call;
+
+
+
+
+
+    }
+
+    /**
+     * oauth2 user&#x27;s token for tmall
+     *
+     * @param code  (required)
+     * @param grantType  (required)
+     * @param refreshToken  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (optional)
+     * @return OAuth2TmallResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public String oAuth2TmallToken(String code, String grantType, String refreshToken, String authorization) throws ApiException {
+        ApiResponse<String> resp = oAuth2TmallTokenWithHttpInfo(code, grantType, refreshToken, authorization);
+        return resp.getData();
+    }
+
+    /**
+     * oauth2 user&#x27;s token for tmall
+     *
+     * @param code  (required)
+     * @param grantType  (required)
+     * @param refreshToken  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (optional)
+     * @return ApiResponse&lt;OAuth2TmallResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<String> oAuth2TmallTokenWithHttpInfo(String code, String grantType, String refreshToken, String authorization) throws ApiException {
+        com.squareup.okhttp.Call call = oAuth2TmallTokenValidateBeforeCall(code, grantType, refreshToken, authorization, null, null);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * oauth2 user&#x27;s token for tmall (asynchronously)
+     *
+     * @param code  (required)
+     * @param grantType  (required)
+     * @param refreshToken  (required)
+     * @param authorization Authorization, Get form ID.LINK team. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call oAuth2TmallTokenAsync(String code, String grantType, String refreshToken, String authorization, final ApiCallback<OAuth2TmallResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = oAuth2TmallTokenValidateBeforeCall(code, grantType, refreshToken, authorization, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OAuth2TmallResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for oAuth2Token
      * @param clientId  (required)
      * @param clientSecret  (required)
@@ -715,56 +874,6 @@ public class OAuth2Api {
     /**
      * oauth2 user&#x27;s token
      *
-     * @param grantType  (required)
-     * @param password  (required)
-     * @param refreshToken  (required)
-     * @param username  (required)
-     * @param authorization Authorization, Get form ID.LINK team. (required)
-     * @return OAuth2LoginResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public OAuth2LoginResponse oAuth2Token(String grantType, String password, String refreshToken, String username, String authorization) throws ApiException {
-        ApiResponse<OAuth2LoginResponse> resp = oAuth2TokenWithHttpInfo("", "", "", grantType, password, "", refreshToken, username, authorization);
-        return resp.getData();
-    }
-
-    /**
-     * oauth2 user&#x27;s token
-     *
-     * @param grantType  (required)
-     * @param refreshToken  (optional)
-     * @param authCode  (required)
-     * @param authorization Authorization, Get form ID.LINK team. (required)
-     * @return OAuth2LoginResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String oAuth2TokenByCode(String grantType, String authCode, String refreshToken, String authorization) throws ApiException {
-        List<String> auth = decodeAuth(authorization);
-        ApiResponse<String> resp = oAuth2TokenWithHttpInfoForCode(auth.get(0), auth.get(1), authCode, grantType, "", "", refreshToken, "", null);
-        return resp.getData();
-    }
-
-    private List<String> decodeAuth(String authorization) {
-        List<String> result = new ArrayList<>();
-        try {
-            BASE64Decoder decoder = new BASE64Decoder();
-            byte[] b = decoder.decodeBuffer(authorization.split(" ")[1]);
-
-            String idAndSecret = new String(b,"utf-8");
-            String[] split = idAndSecret.split(":");
-            for (String s : split) {
-                result.add(s);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-
-    /**
-     * oauth2 user&#x27;s token
-     *
      * @param clientId  (required)
      * @param clientSecret  (required)
      * @param code  (required)
@@ -782,26 +891,6 @@ public class OAuth2Api {
         return resp.getData();
     }
 
-    /**
-     * oauth2 user&#x27;s token
-     *
-     * @param clientId  (required)
-     * @param clientSecret  (required)
-     * @param code  (required)
-     * @param grantType  (required)
-     * @param password  (required)
-     * @param redirectUri  (required)
-     * @param refreshToken  (required)
-     * @param username  (required)
-     * @param authorization Authorization, Get form ID.LINK team. (optional)
-     * @return ApiResponse&lt;OAuth2LoginResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> oAuth2TokenWithHttpInfoForCode(String clientId, String clientSecret, String code, String grantType, String password, String redirectUri, String refreshToken, String username, String authorization) throws ApiException {
-        com.squareup.okhttp.Call call = oAuth2TokenValidateBeforeCall(clientId, clientSecret, code, grantType, password, redirectUri, refreshToken, username, authorization, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
     /**
      * oauth2 user&#x27;s token
      *

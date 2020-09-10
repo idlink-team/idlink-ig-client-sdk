@@ -25,17 +25,44 @@ import java.io.IOException;
  */
 @Schema(description = "Response data model")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-09-10T17:25:26.265+08:00[Asia/Shanghai]")
-public class OAuth2GetUserInfoResponse {
+public class OAuth2TmallResponse {
+  @SerializedName("access_token")
+  private String accessToken = null;
+
   @SerializedName("data")
-  private String data = null;
+  private Object data = null;
 
   @SerializedName("detail")
   private String detail = null;
 
+  @SerializedName("expires_in")
+  private Long expiresIn = null;
+
   @SerializedName("httpStatus")
   private String httpStatus = null;
 
-  public OAuth2GetUserInfoResponse data(String data) {
+  @SerializedName("refresh_token")
+  private String refreshToken = null;
+
+  public OAuth2TmallResponse accessToken(String accessToken) {
+    this.accessToken = accessToken;
+    return this;
+  }
+
+   /**
+   * access_token
+   * @return accessToken
+  **/
+  @Schema(description = "access_token")
+  public String getAccessToken() {
+    return accessToken;
+  }
+
+  public void setAccessToken(String accessToken) {
+    this.accessToken = accessToken;
+  }
+
+  public OAuth2TmallResponse data(Object data) {
     this.data = data;
     return this;
   }
@@ -45,15 +72,15 @@ public class OAuth2GetUserInfoResponse {
    * @return data
   **/
   @Schema(description = "Response data")
-  public String getData() {
+  public Object getData() {
     return data;
   }
 
-  public void setData(String data) {
+  public void setData(Object data) {
     this.data = data;
   }
 
-  public OAuth2GetUserInfoResponse detail(String detail) {
+  public OAuth2TmallResponse detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -71,7 +98,25 @@ public class OAuth2GetUserInfoResponse {
     this.detail = detail;
   }
 
-  public OAuth2GetUserInfoResponse httpStatus(String httpStatus) {
+  public OAuth2TmallResponse expiresIn(Long expiresIn) {
+    this.expiresIn = expiresIn;
+    return this;
+  }
+
+   /**
+   * expires_in
+   * @return expiresIn
+  **/
+  @Schema(description = "expires_in")
+  public Long getExpiresIn() {
+    return expiresIn;
+  }
+
+  public void setExpiresIn(Long expiresIn) {
+    this.expiresIn = expiresIn;
+  }
+
+  public OAuth2TmallResponse httpStatus(String httpStatus) {
     this.httpStatus = httpStatus;
     return this;
   }
@@ -89,6 +134,24 @@ public class OAuth2GetUserInfoResponse {
     this.httpStatus = httpStatus;
   }
 
+  public OAuth2TmallResponse refreshToken(String refreshToken) {
+    this.refreshToken = refreshToken;
+    return this;
+  }
+
+   /**
+   * refresh_token
+   * @return refreshToken
+  **/
+  @Schema(description = "refresh_token")
+  public String getRefreshToken() {
+    return refreshToken;
+  }
+
+  public void setRefreshToken(String refreshToken) {
+    this.refreshToken = refreshToken;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,26 +161,32 @@ public class OAuth2GetUserInfoResponse {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    OAuth2GetUserInfoResponse oauth2GetUserInfoResponse = (OAuth2GetUserInfoResponse) o;
-    return ObjectUtils.equals(this.data, oauth2GetUserInfoResponse.data) &&
-    ObjectUtils.equals(this.detail, oauth2GetUserInfoResponse.detail) &&
-    ObjectUtils.equals(this.httpStatus, oauth2GetUserInfoResponse.httpStatus);
+    OAuth2TmallResponse oauth2TmallResponse = (OAuth2TmallResponse) o;
+    return ObjectUtils.equals(this.accessToken, oauth2TmallResponse.accessToken) &&
+    ObjectUtils.equals(this.data, oauth2TmallResponse.data) &&
+    ObjectUtils.equals(this.detail, oauth2TmallResponse.detail) &&
+    ObjectUtils.equals(this.expiresIn, oauth2TmallResponse.expiresIn) &&
+    ObjectUtils.equals(this.httpStatus, oauth2TmallResponse.httpStatus) &&
+    ObjectUtils.equals(this.refreshToken, oauth2TmallResponse.refreshToken);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(data, detail, httpStatus);
+    return ObjectUtils.hashCodeMulti(accessToken, data, detail, expiresIn, httpStatus, refreshToken);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OAuth2GetUserInfoResponse {\n");
+    sb.append("class OAuth2TmallResponse {\n");
     
+    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("    httpStatus: ").append(toIndentedString(httpStatus)).append("\n");
+    sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

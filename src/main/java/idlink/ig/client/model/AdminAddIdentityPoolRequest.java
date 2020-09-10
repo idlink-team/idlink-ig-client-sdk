@@ -24,7 +24,7 @@ import java.io.IOException;
  * AdminAddIdentityPoolRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-09-09T12:01:47.809+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-09-10T17:25:26.265+08:00[Asia/Shanghai]")
 public class AdminAddIdentityPoolRequest {
   @SerializedName("displayName")
   private String displayName = null;
