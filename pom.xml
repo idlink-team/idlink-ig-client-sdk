@@ -235,7 +235,7 @@
     <commons_lang3_version>3.6</commons_lang3_version>
     <threetenbp-version>1.3.5</threetenbp-version>
     <maven-plugin-version>1.0.0</maven-plugin-version>
-    <junit-version>4.12</junit-version>
+    <junit-version>4.13.1</junit-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
